@@ -20,7 +20,7 @@ Obj files have a standard way to store extra information about a mesh. Given an
 obj file, it can be read with
 
 ```
-  verts, faces, aux = load_obj(filename)
+verts, faces, aux = load_obj(filename)
 ```
 
 which sets `verts` to be a (V,3)-tensor of vertices and `faces.verts_idx` to be
@@ -31,7 +31,7 @@ are present, and `faces` may additionally contain indices into these normals,
 textures and materials in its NamedTuple structure. A Meshes object containing a
 single mesh can be created from just the vertices and faces using
 ```
-    meshes = Meshes(verts=[verts], faces=[faces.verts_idx])
+meshes = Meshes(verts=[verts], faces=[faces.verts_idx])
 ```
 
 If there is texture information in the `.obj` it can be used to initialize a
@@ -64,12 +64,12 @@ Ply files are flexible in the way they store additional information. PyTorch3D
 provides a function just to read the vertices and faces from a ply file.
 The call
 ```
-    verts, faces = load_ply(filename)
+verts, faces = load_ply(filename)
 ```
 sets `verts` to be a (V,3)-tensor of vertices and `faces` to be an (F,3)-
 tensor of the vertex-indices of each of the corners of the faces. Faces which
 are not triangles will be split into triangles. A Meshes object containing a
 single mesh can be created from this data using
 ```
-    meshes = Meshes(verts=[verts], faces=[faces])
+meshes = Meshes(verts=[verts], faces=[faces])
 ```
